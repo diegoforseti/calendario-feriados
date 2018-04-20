@@ -97,16 +97,28 @@ final class Feriado
     }
 
     /**
-     * Retorna o próximo dia útil
+     * Retorna o próximo dia útil inclusive a data atual
      * @param \DateTime $dataBase
      * @return \DateTime
      * @throws \Exception
      */
-    public function proximoDiaUtil(\DateTime $dataBase)
+    public function diaUtilMaisProximo(\DateTime $dataBase)
     {
         while ($this->ehDiaUtil($dataBase) === false) {
             $dataBase = $dataBase->add(new \DateInterval('P1D'));
         }
+        return $dataBase;
+    }
+
+    public function proximoDiaUtil(\DateTime $dataBase, $qtdDiasUteis = 1)
+    {
+        $interval = new \DateInterval('P1D');
+
+        for($i = 0; $i < $qtdDiasUteis; $i++) {
+            $dataBase = $dataBase->add($interval);
+            $dataBase = $this->diaUtilMaisProximo($dataBase);
+        }
+
         return $dataBase;
     }
 }
