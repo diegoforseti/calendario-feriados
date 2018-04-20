@@ -28,6 +28,6 @@ echo "\nÉ feriado?: ";
 var_dump($feriados->ehFeriado($date));
 
 echo "\nPróximo dia útil: ";
-var_dump($feriados->proximoDiaUtil($date));
+var_dump($feriados->proximoDiaUtil($date, 8 /*total de dias uteis a partir da data*/));
 
 ```
