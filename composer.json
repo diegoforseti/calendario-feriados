@@ -1,6 +1,6 @@
 {
     "name": "diegoforseti/calendario-feriados",
-    "description": "Classe auxiliar para verificação de veriados",
+    "description": "Verificação offline de feriados nacionais e alguns municipais",
     "authors": [
         {
             "name": "Diego Saouda",
