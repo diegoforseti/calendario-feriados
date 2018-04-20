@@ -1,0 +1,23 @@
+{
+    "name": "diegoforseti/calendario-feriados",
+    "description": "Classe auxiliar para verificação de veriados",
+    "authors": [
+        {
+            "name": "Diego Saouda",
+            "email": "diego.saouda@forseti.com.br"
+        },
+        {
+            "name": "Ricardo Sanches",
+            "email": "ricardo.sanchesa@vlance.com.br"
+        }
+
+    ],
+    "require": {
+        "php": ">=5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Forseti\\CalendarioFeriados\\": "src/"
+        }
+    }
+}
