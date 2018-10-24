@@ -11,10 +11,10 @@ final class Feriado
     {
         $this->ufs = $ufs;
         $this->ufs[] = 'nacional';
-        $this->feriados['nacional'] = include_once __DIR__ . '/../resources/feriados/nacional.php';
+        $this->feriados['nacional'] = include_once __DIR__.'/../resources/feriados/nacional.php';
 
         foreach ($ufs as $uf) {
-            $municipal = __DIR__ . "/../resources/feriados/{$uf}.php";
+            $municipal = __DIR__."/../resources/feriados/{$uf}.php";
             if (!file_exists($municipal)) {
                 throw new \RuntimeException("{$uf} não implementada");
             }
@@ -24,8 +24,10 @@ final class Feriado
     }
 
     /**
-     * Verifica se a data é um dia útil
+     * Verifica se a data é um dia útil.
+     *
      * @param \DateTime $data
+     *
      * @return bool
      */
     public function ehDiaUtil(\DateTime $data)
@@ -37,24 +39,30 @@ final class Feriado
 
         $ehFeriado = $this->ehFeriado($data);
         $ehDiaUtil = ($ehFeriado) ? false : true;
+
         return $ehDiaUtil;
     }
 
     /**
      * É feriado?
+     *
      * @param \DateTime $data
+     *
      * @return bool
      */
     public function ehFeriado(\DateTime $data)
     {
         $ano = $data->format('Y');
         $feriados = $this->listarFeriadosLinear($ano);
+
         return isset($feriados[$data->format('m-d')]);
     }
 
     /**
-     * Lista de feriados
+     * Lista de feriados.
+     *
      * @param int $anoBase
+     *
      * @return array
      */
     public function listar($anoBase = null)
@@ -76,8 +84,10 @@ final class Feriado
     }
 
     /**
-     * Retorna a lista de feriados sem o ano base no header
+     * Retorna a lista de feriados sem o ano base no header.
+     *
      * @param int $anoBase
+     *
      * @return array
      */
     private function listarFeriadosLinear($anoBase = null)
@@ -97,16 +107,20 @@ final class Feriado
     }
 
     /**
-     * Retorna o próximo dia útil inclusive a data atual
+     * Retorna o próximo dia útil inclusive a data atual.
+     *
      * @param \DateTime $dataBase
-     * @return \DateTime
+     *
      * @throws \Exception
+     *
+     * @return \DateTime
      */
     public function diaUtilMaisProximo(\DateTime $dataBase)
     {
         while ($this->ehDiaUtil($dataBase) === false) {
             $dataBase = $dataBase->add(new \DateInterval('P1D'));
         }
+
         return $dataBase;
     }
 
@@ -114,7 +128,7 @@ final class Feriado
     {
         $interval = new \DateInterval('P1D');
 
-        for($i = 0; $i < $qtdDiasUteis; $i++) {
+        for ($i = 0; $i < $qtdDiasUteis; $i++) {
             $dataBase = $dataBase->add($interval);
             $dataBase = $this->diaUtilMaisProximo($dataBase);
         }

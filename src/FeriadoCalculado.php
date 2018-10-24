@@ -6,7 +6,6 @@ use InvalidArgumentException;
 
 final class FeriadoCalculado
 {
-
     const DIA = 86400;
     const DIAS_DO_CARNAVAL_ANTES_DA_PASCOA = 47;
     const DIAS_CORPUSCRISTI_DEPOIS_PASCOA = 60;
@@ -25,7 +24,8 @@ final class FeriadoCalculado
     }
 
     /**
-     * Calcular o feriado do carnaval
+     * Calcular o feriado do carnaval.
+     *
      * @return string com dia / mes
      */
     public function getCarnaval()
@@ -34,7 +34,8 @@ final class FeriadoCalculado
     }
 
     /**
-     * Calcular o feriado de Sexta Santa
+     * Calcular o feriado de Sexta Santa.
+     *
      * @return string com dia / mes
      */
     public function getSextaSanta()
@@ -43,7 +44,8 @@ final class FeriadoCalculado
     }
 
     /**
-     * Calcular o feriado de Corpus Cristi
+     * Calcular o feriado de Corpus Cristi.
+     *
      * @return string com dia / mes
      */
     public function getCorpusCristi()
@@ -52,12 +54,12 @@ final class FeriadoCalculado
     }
 
     /**
-     * Formatação padrão para o array de feriados
+     * Formatação padrão para o array de feriados.
+     *
      * @return string
      */
     private function formatarTime($timestamp)
     {
         return date(self::FORMATO_DATA_KEY, $timestamp);
     }
-
 }
