@@ -1,3 +1,5 @@
+[![StyleCI](https://github.styleci.io/repos/132799096/shield?branch=master)](https://github.styleci.io/repos/132799096)
+
 # Feriados nacionais e de algumas cidades brasileiras
 
 Implementação de verificação offline de feriados nacionais e de algumas cidades brasileiras
